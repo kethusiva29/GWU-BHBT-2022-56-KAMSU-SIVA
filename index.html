@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/Image/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/Image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/Image/favicon-16x16.png">
+    <link rel="manifest" href="assets/Image/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kamshathvany sivasuntharam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --accent: #0ea5e9;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #334155;
+            --gray-light: #475569;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --white: #ffffff;
+            --border: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+
+        
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image-container {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: var(--dark-light);
+            border: 4px solid var(--primary);
+            overflow: hidden;
+        }
+
+        .profile-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: -2rem auto 3rem;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-image-container {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: 12px;
+            background: var(--dark-light);
+            border: 2px solid var(--border);
+            overflow: hidden;
+        }
+
+        .about-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--dark-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--dark-light);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .education-section,
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card,
+        .reference-card {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .education-card:hover,
+        .reference-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .education-title,
+        .reference-name {
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .education-school,
+        .reference-title {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-date,
+        .reference-org {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .education-desc,
+        .reference-contact {
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .experience-item {
+            background: var(--dark-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover {
+            border-color: var(--primary);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .experience-company {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .experience-date {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .experience-item li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: var(--primary);
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .skill-tag {
+            background: var(--gray);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--dark-light);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .activity-card {
+            background: var(--dark-light);
+            padding: 1rem;
+            border-radius: 15px;
+            border: 4px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .activity-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .activity-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: var(--dark-light);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 968px) {
+            .hero .container,
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-image-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .profile-image-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* ===== PORTFOLIO SECTION ===== */
+/* PROJECT SECTION SAME AS SKILLS */
+
+#projects {
+    padding: 100px 8%;
+    background: #0b1220;
+}
+
+#projects h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Divider */
+.section-divider {
+    width: 60px;
+    height: 4px;
+    background: #3b82f6;
+    margin: 0 auto 50px;
+    border-radius: 2px;
+}
+
+/* Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Category Card */
+.skill-category {
+    background: #020617;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-6px);
+    border-color: #3b82f6;
+}
+
+/* Title */
+.skill-category h3 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+/* Description */
+.project-desc {
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+/* Tags */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background: rgba(59,130,246,0.15);
+    color: #3b82f6;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+/* =========================
+   SKILL CATEGORY / ACHIEVEMENTS TAGS
+========================= */
+
+.skill-category {
+    margin-bottom: 40px;
+}
+
+.skill-category h3 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-tag {
+    background: rgba(59, 130, 246, 0.15); /* Light blue background */
+    color: #3b82f6; /* Text color matching badge */
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background: #3b82f6;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">KAMSU</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#poiject">poiject</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Kamshathavany Sivasuntharam</h1>
+                <p class="subtitle">Bio Medical Technology Undergraduate Student</p>
+                <p>I am a Biomedical Science student eager to explore the frontiers of medical research and laboratory science. I enjoy hands-on experiments, data analysis, and applying scientific knowledge to solve real-world health problems.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#CV" class="btn btn-secondary">View CV</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-image-container">
+                    <img src="assets/Image/profile.jpeg" alt="kamsu">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="section-divider"></div>
+        <div class="about-content">
+            <div class="about-image-container">
+                <img src="assets/Image/about.jpeg" alt="About Haleem">
+            </div>
+            <div class="about-text">
+                <p>I am an enthusiastic Biomedical Science student currently in my second year at the University of Gampaha Wikkirmarachchi indegenous medicine. With a strong foundation in laboratory techniques and research methodology, I bring curiosity and dedication to everyday work.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Months Experience - People Bank</div>
+                    </div>
+                     <div class="stat-card">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Months Experience - Jaffna Teaching Hospital(BME)</div>
+                    </div>
+                    
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:kamshathvanysivasuntharam@gmail.com">kamshathvanysivasuntharam@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="section-divider"></div>
+        <div class="education-section">
+            <div class="education-card">
+                <div class="education-title">Secondary Studies</div>
+                <div class="education-school">Atchuvely Saraswathy Widyasalai</div>
+                <div class="education-date">2007 – 2017</div>
+                <div class="education-desc">Atchuvely , Jaffna</div>
+            </div>
+             <div class="education-card">
+                <div class="education-title">Advanced Level Studies</div>
+                <div class="education-school">Puttur Sri Somaskanda College</div>
+                <div class="education-date">2018 – 2021</div>
+                <div class="education-desc">Puttur , Jaffna</div>
+            </div>
+                <div class="education-card">
+                <div class="education-title">University Studies</div>
+                <div class="education-school">University of Gampaha Wikkirmarachchi indegenous medicine</div>
+                <div class="education-date">2022 – Present </div>
+                <div class="education-desc">Gampaha</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="section-divider"></div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <h3 class="experience-title">Trainee Staff Assistant</h3>
+                    <p class="experience-company">Peoples Bank Atchuvely- Jaffna</p>
+                </div>
+                <div class="experience-date">Nov 2021 – May 2022</div>
+            </div>
+            <ul>
+                <li>Assisted with daily banking operations, including customer service, data entry, and documentation, ensuring accuracy and efficiency in routine tasks.</li>     
+            </ul>
+        </div>
+                <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <h3 class="experience-title">BME</h3>
+                    <p class="experience-company">Jaffna Teaching Hospital - Jaffna</p>
+                </div>
+                <div class="experience-date">2025 (Aug to Sept)</div>
+            </div>
+            <ul>
+                <li>Assisted with daily banking operations, including customer service, data entry, and documentation, ensuring accuracy and efficiency in routine tasks.</li>     
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Expertise</h2>
+        <div class="section-divider"></div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>💻 Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>🛠️ Tools & Technologies</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">MS Excel & PowerPoint</span>
+                     <span class="skill-tag">MATLAB(EMG, ECG, Temperature) </span>
+                      <span class="skill-tag">Arduino IDE </span>
+                       <span class="skill-tag">Cisco Packet Tracer </span>
+                        <span class="skill-tag">Proteus Simulation </span>
+                        
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>🌐 Languages & AI</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">English</span>
+                    <span class="skill-tag">Tamil</span>
+                    <span class="skill-tag">sinhala</span>
+                    <span class="skill-tag">AI Tools</span>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="activities">
+        <h2>Extra-Curricular Activities</h2>
+        <div class="section-divider"></div>
+        <div class="activities-grid">
+            <div class="activity-card">
+                <div class="activity-icon">👨‍💼</div>
+                <div class="activity-title">Leadership</div>
+                <div class="activity-desc">Led teams, organized events, and coordinated various academic and community activities</div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🧩</div>
+                <div class="activity-title">Problem Solving</div>
+                <div class="activity-desc">Resolved complex issues in projects, competitions, and technical events</div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🤝</div>
+                <div class="activity-title">Teamwork</div>
+                <div class="activity-desc">Collaborated effectively in diverse groups and multicultural teams</div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">💬</div>
+                <div class="activity-title">Communication</div>
+                <div class="activity-desc">Presented ideas clearly to clients, peers, and stakeholders</div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">⏰</div>
+                <div class="activity-title">Time Management</div>
+                <div class="activity-desc">Successfully balanced multiple projects and academic deadlines</div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">💡</div>
+                <div class="activity-title">Creativity & Innovation</div>
+                <div class="activity-desc">Developed innovative solutions for academic and extracurricular activities</div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🔄</div>
+                <div class="activity-title">Adaptability</div>
+                <div class="activity-desc">Adjusted quickly to dynamic project and team requirements</div>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🏏</div>
+                <div class="activity-title">Sports</div>
+                <div class="activity-desc">Active participation in Cricket, Football, and Volleyball</div>
+            </div>
+        </div>
+    </section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="section-divider"></div>
+
+    <div class="skills-grid">
+
+        <div class="skill-category">
+            <h3>🧠 Biomedical Sensors Project</h3>
+            <p class="project-desc">
+                Design and implementation of biomedical signal acquisition systems.
+            </p>
+
+            <div class="skill-tags">
+                <span class="skill-tag">ECG Sensor</span>
+                <span class="skill-tag">EMG Sensor</span>
+                <span class="skill-tag">Temperature Sensor</span>
+                <span class="skill-tag">Pulse Sensor</span>
+                <span class="skill-tag">Signal Processing</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="skill-category">
+    <h3>🏆 Achievements</h3>
+    <div class="skill-tags">
+        <span class="skill-tag">🧬 Biomedical Technology Undergraduate – Currently pursuing BHSc (Hons) with strong academic focus</span>
+        <span class="skill-tag">❤️ Biomedical Sensors Project – Worked on ECG, EMG, temperature & pulse sensor–based monitoring systems</span>
+        <span class="skill-tag">🩺 Clinical Exposure & Practical Learning – Hands-on experience with basic biomedical instruments and lab practices</span>
+        <span class="skill-tag">📊 Signal Analysis & Data Handling – Experience analyzing biomedical signals & interpreting physiological data</span>
+        <span class="skill-tag">🤝 Teamwork in Biomedical Projects – Collaborated with peers on academic & lab-based biomedical projects</span>
+    </div>
+</div>
+
+
+
+    <section id="contact" style="padding: 3rem 5%;">
+        <DIV CLASS ="SKILL_CATEGORY"></DIV>
+        <h2>Let's Connect!</h2>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p style="margin-bottom: 2rem; color: rgba(255, 255, 255, 0.8); font-size: 1.1rem;">I am an undergraduate Biomedical Science student with a strong interest in molecular biology, clinical research, and biotechnology. I enjoy exploring laboratory techniques, analyzing data, and applying scientific knowledge to real-world health challenges. My goal is to contribute to research that improves healthcare outcomes.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="mailto:kamshathvanysivasuntharam@gmail.com" class="btn btn-primary">📧 Email Me</a>
+                <a href="tel:+94771886739" class="btn btn-secondary">📱 Call Me</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="mailto:kamshathvanysivasuntharam@gmail.com">Email</a>
+        </div>
+        <p style="color: rgba(255, 255, 255, 0.6); margin-top: 1rem;">&copy; 2025 Kamshathavany. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+
